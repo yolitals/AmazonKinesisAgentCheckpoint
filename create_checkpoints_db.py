@@ -1,6 +1,15 @@
 import sqlite3
+import argparse
 
-checkpoints_file = '/var/log/trklogs/checkpoints/adserver-dev-clickmanager/checkpoints'
+import argparse
+
+parser = argparse.ArgumentParser(description='Create checkpoint db')
+parser.add_argument('--checkpoint', dest='checkpoints_file', default='/var/log/checkpoints/adserver-dev-clickmanager/checkpoints', help='Complete path to create checkpoint')
+
+args = parser.parse_args()
+
+checkpoints_file = args.checkpoints_file
+
 create_table_statement = "create table if not exists FILE_CHECKPOINTS(flow text,path text,fileId text,lastModifiedTime bigint,size bigint,offset bigint,lastUpdated datetime,primary key (flow, path))"
 
 try:
