@@ -1,8 +1,6 @@
 import sqlite3
 import argparse
 
-import argparse
-
 parser = argparse.ArgumentParser(description='Create checkpoint db')
 parser.add_argument('--checkpoint', dest='checkpoints_file', default='/var/log/checkpoints/adserver-dev-clickmanager/checkpoints', help='Complete path to create checkpoint')
 
